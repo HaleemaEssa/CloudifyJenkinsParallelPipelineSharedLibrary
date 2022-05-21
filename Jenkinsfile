@@ -6,7 +6,7 @@ pipeline {
   agent none
   stages {
     stage('Login to Dockerhub') {
-      agent any
+      agent {label 'local'}
             steps {
                 login()
             }
