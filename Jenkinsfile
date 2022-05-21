@@ -15,7 +15,7 @@ pipeline {
       agent {label 'local'}
             steps {
               git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
-              upload-blueprint()
+              upload_blueprint()
               sleep(time: 1, unit: "SECONDS")
             }
         }
@@ -23,8 +23,8 @@ pipeline {
       agent {label 'local'}
             steps {
               //git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
-              create-deployment()
-              sleep(time: 1, unit: "SECONDS")
+              create_deployment()
+	      sleep(time: 1, unit: "SECONDS")
 
             }
         }
@@ -32,7 +32,7 @@ pipeline {
       agent {label 'local'}
             steps {
               //git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
-              start-execution()
+              start_execution()
             }
         }
     stage('Data Transfering b/w RPi & Edge') {
