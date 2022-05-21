@@ -22,7 +22,7 @@ pipeline {
     stage('cfy-Create Deployment') {
       agent {label 'local'}
             steps {
-              //git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
+              git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
               create_deployment()
 	      sleep(time: 1, unit: "SECONDS")
 
@@ -31,7 +31,7 @@ pipeline {
     stage('cfy-Start Execution') {
       agent {label 'local'}
             steps {
-              //git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
+              git branch: 'main', url: 'https://github.com/HaleemaEssa/displayblueprintresuslt.git'
               start_execution()
             }
         }
