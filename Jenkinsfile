@@ -76,7 +76,7 @@ pipeline {
             sh 'echo "edge1"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-rec.git'
             //sh 'docker build -t haleema/docker-edge1:latest .'
-            dockerBuild("haleema/docker-edge1:latest")  
+            //dockerBuild("haleema/docker-edge1:latest")  
             echo "Started stage A"
             sleep(time: 3, unit: "SECONDS")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge1'
@@ -153,7 +153,7 @@ pipeline {
             sh 'echo "cloud-visualization" '
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud-visualization.git'
           //  sh 'docker build -t haleema/docker-cloud2:latest .'
-        //dockerBuild("haleema/docker-cloud2:latest")
+        dockerBuild("haleema/docker-cloud2:latest")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud2'
         dockerRun("haleema/docker-cloud2")
             
