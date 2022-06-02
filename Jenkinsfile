@@ -46,7 +46,8 @@ pipeline {
              script { 
             try {
             sh 'echo "rpi" '
-            git branch: 'main', url: 'https://github.com/HaleemaEssa/first_jenkins_project.git'
+            //git branch: 'main', url: 'https://github.com/HaleemaEssa/first_jenkins_project.git'
+	    git branch: 'main', url: 'https://github.com/HaleemaEssa/rpi-blynk.git'
             //sh 'docker build -t haleema/docker-rpi:latest .'
             //dockerBuild("haleema/docker-rpi:latest")
             sleep(time: 3, unit: "SECONDS")
