@@ -106,7 +106,7 @@ pipeline {
             //sh 'sleep 10'
             //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge3'
-            sh 'sort -u head -n 1 data.csv > data.csv'		  
+            sh 'sort -u head -n 1 /data/data.csv > data.csv'		  
             dockerRun("haleema/docker-edge3")
             sleep(time: 3, unit: "SECONDS")
 	  }
