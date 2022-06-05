@@ -55,7 +55,7 @@ pipeline {
             dockerRunPi("haleema/docker-rpi")
             sleep(time: 4, unit: "SECONDS")
                } catch (Throwable e) {
-                        echo "Caught ${e.toString()}"
+                        echo "Caught ${e.toString()}"'
                         currentBuild.result = "SUCCESS" //currentBuild.result = 'SUCCESS'
                     }
           }
@@ -66,7 +66,7 @@ pipeline {
 	      
         stage('Receive Data') {
 		options {
-                timeout(time: 60, unit: "SECONDS")
+                timeout(time: 180, unit: "SECONDS")
             }
    
           agent {label 'local'}
@@ -77,7 +77,7 @@ pipeline {
             sh 'echo "edge1"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-rec.git'
             //sh 'docker build -t haleema/docker-edge1:latest .'
-            //dockerBuild("haleema/docker-edge1:latest")  
+            dockerBuild("haleema/docker-edge1:latest")  
             echo "Started stage A"
             sleep(time: 3, unit: "SECONDS")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge1'
