@@ -126,25 +126,25 @@ pipeline {
         } 
        
     stage('Receiving Data in AWS Instance') {
-           options {
-                timeout(time: 60, unit: "SECONDS")
-            }     
+         //  options {
+            //    timeout(time: 60, unit: "SECONDS")
+           // }     
           agent {label 'aws'}
           steps {
             script { 
-            try {
+          //  try {
             sh 'echo "cloud" '
-            git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud.git' //, credentialsId: 'cloudifyjenkins'
-            //sh 'docker build -t haleema/docker-cloud:latest .'
-            //dockerBuild("haleema/docker-cloud:latest")
-            //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud'
-            dockerRun("haleema/docker-cloud")
-            sleep(time: 2, unit: "SECONDS")
-               } catch (Throwable e) {
-                        echo "Caught ${e.toString()}"
-                        currentBuild.result = "SUCCESS" 
-                        //sh 'nano data.csv'             
-                    }
+         //   git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud.git' //, credentialsId: 'cloudifyjenkins'
+         //   //sh 'docker build -t haleema/docker-cloud:latest .'
+         //   //dockerBuild("haleema/docker-cloud:latest")
+         //   //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud'
+        //    dockerRun("haleema/docker-cloud")
+       //     sleep(time: 2, unit: "SECONDS")
+        //       } catch (Throwable e) {
+          //              echo "Caught ${e.toString()}"
+           //             currentBuild.result = "SUCCESS" 
+            //            //sh 'nano data.csv'             
+              //      }
             } 
           }
         }
@@ -152,11 +152,11 @@ pipeline {
           agent {label 'aws'}
       steps {
             sh 'echo "cloud-visualization" '
-            git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud-visualization.git'
-          //  sh 'docker build -t haleema/docker-cloud2:latest .'
-        //dockerBuild("haleema/docker-cloud2:latest")
-            //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud2'
-        dockerRun("haleema/docker-cloud2")
+      //      git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud-visualization.git'
+      //    //  sh 'docker build -t haleema/docker-cloud2:latest .'
+    //    //dockerBuild("haleema/docker-cloud2:latest")
+     //       //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud2'
+     //   dockerRun("haleema/docker-cloud2")
             
           }
         }
