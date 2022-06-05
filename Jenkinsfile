@@ -106,7 +106,7 @@ pipeline {
             //sh 'sleep 10'
             //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge3'
-            sh 'sort -u head -n 1 /data/data.csv > data.csv'		  
+            //sh 'sort -u head -n 1 /data/data.csv > data.csv'		  
             dockerRun("haleema/docker-edge3")
             sleep(time: 3, unit: "SECONDS")
 	  }
@@ -139,7 +139,7 @@ pipeline {
              //sh 'docker build -t haleema/docker-cloud:latest .'
             //dockerBuild("haleema/docker-cloud:latest")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud'
-           // dockerRun("haleema/docker-cloud")
+            dockerRun("haleema/docker-cloud")
             sleep(time: 2, unit: "SECONDS")
               } catch (Throwable e) {
                         echo "Caught ${e.toString()}"
@@ -157,7 +157,7 @@ pipeline {
           //  sh 'docker build -t haleema/docker-cloud2:latest .'
         //dockerBuild("haleema/docker-cloud2:latest")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud2'
-       // dockerRun("haleema/docker-cloud2")
+            dockerRun("haleema/docker-cloud2")
             
           }
         }
