@@ -102,10 +102,11 @@ pipeline {
             sh 'echo "Data Preprocessing"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-proc.git'
             //sh 'docker build -t haleema/docker-edge3:latest .'
-            dockerBuild("haleema/docker-edge3:latest")
+            //dockerBuild("haleema/docker-edge3:latest")
             //sh 'sleep 10'
             //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge3'
+            sh 'sort -u head -n 1 data.csv > data.csv'		  
             dockerRun("haleema/docker-edge3")
             sleep(time: 3, unit: "SECONDS")
 	  }
