@@ -55,7 +55,7 @@ pipeline {
             dockerRunPi("haleema/docker-rpi")
             sleep(time: 4, unit: "SECONDS")
                } catch (Throwable e) {
-                        echo "Caught ${e.toString()}"'
+                        echo "Caught ${e.toString()}"
                         currentBuild.result = "SUCCESS" //currentBuild.result = 'SUCCESS'
                     }
           }
