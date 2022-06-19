@@ -35,8 +35,8 @@ pipeline {
               start_execution()
             }
         }
-    #stage('Data Transfering b/w RPi & Edge') {
-     # parallel {
+    //stage('Data Transfering b/w RPi & Edge') {
+     // parallel {
 	       stage('On-RPI') {
 		   options {
                 timeout(time: 60, unit: "SECONDS")
@@ -66,15 +66,15 @@ pipeline {
 	      
 	      
         stage('Receive Data') {
-		#options {
-          #      timeout(time: 60, unit: "SECONDS")
-         #   }
+		//options {
+          //      timeout(time: 60, unit: "SECONDS")
+         //   }
    
           agent {label 'local'}
         
           steps {
-          #  script { 
-            #try {
+          //  script { 
+            //try {
             sh 'echo "edge1"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-rec.git'
             //sh 'docker build -t haleema/docker-edge1:latest .'
@@ -83,19 +83,19 @@ pipeline {
             sleep(time: 1, unit: "SECONDS")
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge1'
             dockerRun("haleema/docker-edge1")
-           # sleep(time: 2, unit: "SECONDS")
-              # } catch (Throwable e) {
-                   #     echo "Caught ${e.toString()}"
-                    #    currentBuild.result = "SUCCESS" 
+           // sleep(time: 2, unit: "SECONDS")
+              // } catch (Throwable e) {
+                   //     echo "Caught ${e.toString()}"
+                    //    currentBuild.result = "SUCCESS" 
                         //sh 'nano data.csv'             
-                   # }
+                   // }
                 
 
-         # }//script
+         // }//script
         }//step
       }//stage
-	#}//parallel
-#}//stage
+	//}//parallel
+//}//stage
     
     stage('Data Preprocessing') {
           agent {label 'local'}
