@@ -87,7 +87,7 @@ pipeline {
                } catch (Throwable e) {
                         echo "Caught ${e.toString()}"
                         currentBuild.result = "SUCCESS" 
-                        sh 'nano data.csv'             
+                      //  sh 'nano data.csv'             
                     }
                 
 
