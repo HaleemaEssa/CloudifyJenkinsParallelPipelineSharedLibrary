@@ -39,7 +39,7 @@ pipeline {
      // parallel {
 	       stage('On-RPI') {
 		   options {
-                timeout(time: 100, unit: "SECONDS")
+                timeout(time: 210, unit: "SECONDS")
             }
           agent {label 'linuxslave1'}
           steps {
