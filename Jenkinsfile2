@@ -39,7 +39,7 @@ pipeline {
      // parallel {
 	       stage('On-RPI') {
 		   options {
-                timeout(time: 20, unit: "SECONDS")
+                timeout(time: 220, unit: "SECONDS")
             }
           agent {label 'linuxslave1'}
           steps {
@@ -49,7 +49,7 @@ pipeline {
             //git branch: 'main', url: 'https://github.com/HaleemaEssa/first_jenkins_project.git'
 	    git branch: 'main', url: 'https://github.com/HaleemaEssa/rpi-blynk.git'
             //sh 'docker build -t haleema/docker-rpi:latest .'
-            //dockerBuild("haleema/docker-rpi:latest")
+            dockerBuild("haleema/docker-rpi:latest")
 	    //dockerBuild("haleema/docker-rpi-blynk:latest")
             sleep(time: 3, unit: "SECONDS")
             //sh 'docker run --privileged -t haleema/docker-rpi'
