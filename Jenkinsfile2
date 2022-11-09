@@ -118,7 +118,7 @@ pipeline {
           steps {	  
             sh 'echo "sending data to cloud based on Cloud AMQP"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-send.git'
-            //sh 'docker build -t haleema/docker-edge222:latest .'
+            sh 'docker build -t haleema/docker-edge222:latest .'
             //dockerBuild("haleema/docker-edge222:latest")
             //sh 'sleep 10'
             //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
