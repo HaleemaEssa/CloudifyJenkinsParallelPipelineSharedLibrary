@@ -131,7 +131,7 @@ pipeline {
        
     stage('Receiving Data in Cloud VM') {
            options {
-                timeout(time: 30, unit: "SECONDS")
+                timeout(time: 3300, unit: "SECONDS")
             }     
           agent {label 'aws'} //server
           steps {
@@ -139,7 +139,7 @@ pipeline {
             try {
             sh 'echo "cloud" '
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud.git' //, credentialsId: 'cloudifyjenkins'
-             //sh 'docker build -t haleema/docker-cloud:latest .'
+             sh 'docker build -t haleema/docker-cloud:latest .'
             //dockerBuild("haleema/docker-cloud:latest")
             sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud'
             //dockerRun("haleema/docker-cloud")
@@ -157,7 +157,7 @@ pipeline {
       steps {
             sh 'echo "cloud-visualization" '
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud-visualization.git'
-            //sh 'docker build -t haleema/docker-cloud2:latest .'
+            sh 'docker build -t haleema/docker-cloud2:latest .'
             //dockerBuild("haleema/docker-cloud2:latest")
             sh 'docker run -v "${PWD}:/data" -t haleema/docker-cloud2'
             //dockerRun("haleema/docker-cloud2")
