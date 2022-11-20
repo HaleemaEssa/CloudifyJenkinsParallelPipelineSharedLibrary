@@ -39,7 +39,7 @@ pipeline {
      // parallel {
 	       stage('On-RPI') {
 		   options {
-                timeout(time: 30, unit: "SECONDS")
+                timeout(time: 20, unit: "SECONDS")
             }
           agent {label 'linuxslave1'}
           steps {
@@ -79,11 +79,11 @@ pipeline {
             try {
             sh 'echo "edge1"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge-rec.git'
-            sh 'docker build -t haleema/docker-edge1:latest .'
+            //sh 'docker build -t haleema/docker-edge1:latest .'
             //dockerBuild("haleema/docker-edge1:latest")  
             echo "Started stage A"
             sleep(time: 3, unit: "SECONDS")
-            //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge1'
+            sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge1'
             //dockerRun("haleema/docker-edge1")
            // sleep(time: 2, unit: "SECONDS")
                } catch (Throwable e) {
