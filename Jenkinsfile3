@@ -133,7 +133,7 @@ pipeline {
            options {
                 timeout(time: 30, unit: "SECONDS")
             }     
-          agent {label 'server'}
+          agent {label 'aws'} //server
           steps {
             script { 
             try {
@@ -153,7 +153,7 @@ pipeline {
           }
         }
     stage('On-Cloud-visulization') {
-          agent {label 'server'}
+          agent {label 'aws'} //server
       steps {
             sh 'echo "cloud-visualization" '
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-cloud-visualization.git'
