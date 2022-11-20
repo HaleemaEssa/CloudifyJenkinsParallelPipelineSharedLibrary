@@ -129,7 +129,7 @@ pipeline {
           }
         } 
        
-    stage('Receiving Data in AWS Instance') {
+    stage('Receiving Data in Cloud VM') {
            options {
                 timeout(time: 30, unit: "SECONDS")
             }     
@@ -152,7 +152,7 @@ pipeline {
             } 
           }
         }
-    stage('On-aws-visulization') {
+    stage('On-Cloud-visulization') {
           agent {label 'server'}
       steps {
             sh 'echo "cloud-visualization" '
